@@ -37,10 +37,10 @@ Assignment: jQuery
 			$("h2").each(function() {                                                     
     
 				//insert an anchor to jump to, from the TOC link.            
-				var anchor = "<a id='" + index + "'></a>";                 
+				var anchor = "<a id=cert'" + index + "'></a>";                 
 				$(this).before(anchor);                                     
         
-				var li     = "<li><a href='#" + index + "'>" + $(this).text() + "</a></li>"; 
+				var li     = "<li><a href='#cert" + index + "'>" + $(this).text() + "</a></li>"; 
                                          
 				prevH2List = $("<ul></ul>");                
 				prevH2Item = $(li);                                     
