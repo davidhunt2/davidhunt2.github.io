@@ -9,14 +9,14 @@ Assignment: jQuery
 
 <head>
     <title>CNIT Certificates</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	
 	<script type="text/javascript">
 		var list = ("<ul>")
 		$("h2").each(function(i) {
 			var current = $(this);
 			current.attr("id", "cert" + i);
-			list.append("<li>" + "<a id='link" + i + "' href='#cert" + i +"'/>" +
+			list.append("<li><a id='link" + i + "' href='#cert" + i +"'/>" +
 			current.val() + "</a></li>");
 		});
 		$(“.content h1”).after(list);
