@@ -16,7 +16,8 @@ Assignment: jQuery
 		$("h2").each(function(i) {
 			var current = $(this);
 			current.attr("id", "cert" + i);
-			$(".content h1").append("<p><a id='link" + i + "' href='#cert" + i +"'/>" + current.text() + "</a></p>");
+			$(".content h1").append("<p>" + current.text() + "</p>");
+			//$(".content h1").append("<p><a id='link" + i + "' href='#cert" + i +"'/>" + current.text() + "</a></p>");
 		});		
 	</script>
 </head>
