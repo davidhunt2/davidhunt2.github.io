@@ -12,22 +12,24 @@ Assignment: jQuery
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	
 	<script type="text/javascript">
+		var list = ("<ul>")
 		$("h2").each(function(i) {
 			var current = $(this);
 			current.attr("id", "cert" + i);
-			var pos = current.position().top / $("#content").height() * $(window).height();
-		$("#toc").append("<a id='link" + i + "' href='#title" + i +
-		"' title='" + current.attr("tagName") + "'>" +
-			current.html() + "</a>");
-    
-		$("#link" + i).css("top", pos);
+			$("list").append("<li>" + "<a id='link" + i + "' href='#cert" + i +
+			"' title='" + current.attr("tagName") + "'/>" +
+			current.val() + "</a></li>");
 		});
+		$(“.content h1”).after(list);
+		
 	</script>
 </head>
 
 <body>
 	<div class="content">
 		<h1>Computer Networking and Information Technology</h1>
+		<ul>
+		</ul>
 		<h2>Beginning Web Development Certificate</h2>
 		<h3>CNIT 131H</h3>
 			<p>Introduction to HTML &amp; CSS – a light introduction course to HTML 
