@@ -12,19 +12,47 @@ Assignment: jQuery
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	
 	<script type="text/javascript">
-		$(document).ready(function() {
-			var list = null;
-			var i = 0;
-			var current = null;
-			list.append("<ul>");
-			$("h2").each(function() {
-				current = $(this);
-				current.attr("id", i);
-				list.append("<li><a href='#" + i + "'>" + current.text() + "</a></li>");
-			});
-			list.append("</ul>");
-			window.alert(list);
-			$(".content h1").append(list);
+//		$(document).ready(function() {
+	//		var list = null;
+		//	var i = 0;
+		//	var current = null;
+		//	list.append("<ul>");
+		//	$("h2").each(function() {
+		//		current = $(this);
+		//		current.attr("id", i);
+		//		list.append("<li><a href='#" + i + "'>" + current.text() + "</a></li>");
+		//	});
+		//	list.append("</ul>");
+		//	window.alert(list);
+		//	$(".content h1").append(list);
+		//});	
+-->
+		$(document).ready(function() {                                                                          
+			$(tocList).empty();                                                            
+    
+			var prevH2Item = null;                                                            
+			var prevH2List = null;                                                            
+    
+			var index = 0;                                                                    
+			$("h2, h3").each(function() {                                                     
+    
+				//insert an anchor to jump to, from the TOC link.            
+				var anchor = "<a name='" + index + "'></a>";                 
+				$(this).before(anchor);                                     
+        
+				var li     = "<li><a href='#" + index + "'>" + $(this).text() + "</a></li>"; 
+        
+				if( $(this).is("h2") ){                                     
+					prevH2List = $("<ul></ul>");                
+					prevH2Item = $(li);                                     
+					prevH2Item.append(prevH2List);                          
+					prevH2Item.appendTo("#tocList");                        
+				} else {                                                    
+					prevH2List.append(li);                                  
+				}                                                           
+				index++;                                                    
+			});                                                             
+    
 		});		
 	</script>
 </head>
@@ -32,6 +60,11 @@ Assignment: jQuery
 <body>
 	<div class="content">
 		<h1>Computer Networking and Information Technology</h1>
+		<div id="tocDiv">
+		<ul id="tocList">
+
+		</ul>
+		</div>
 		<h2>Beginning Web Development Certificate</h2>
 		<h3>CNIT 131H</h3>
 			<p>Introduction to HTML &amp; CSS – a light introduction course to HTML 
