@@ -78,11 +78,12 @@ graph.selectAll('rect')
 			.style('top', (d3.event.pageY - 30) + 'px')
 		d3.select(this)
 			.style('opacity', .4)
-	})
-	.on('mouseout', function(d) {
-	  d3.select(this)
-	    .style('opacity', 1)
-	});
+	 })
+	 .on('mouseout', function(d) {
+	    tooltip.transition()
+	    d3.select(this)
+	      .style('opacity', 1)
+	 });
 graph.append('g')
   .call(d3.axisLeft(yS).scale(verticalGuide));
 graph.append('g')
